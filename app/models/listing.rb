@@ -1,6 +1,8 @@
 class Listing < ApplicationRecord
   # Direct associations
 
+  belongs_to :category
+
   belongs_to :contact
 
   # Indirect associations
