@@ -4,6 +4,11 @@ class ListingsController < ApplicationController
   # GET /listings
   def index
     @listings = Listing.all
+    @location_hash = Gmaps4rails.build_markers(@listings.where.not(:location_latitude => nil)) do |listing, marker|
+      marker.lat listing.location_latitude
+      marker.lng listing.location_longitude
+      marker.infowindow "<h5><a href='/listings/#{listing.id}'>#{listing.price}</a></h5><small>#{listing.location_formatted_address}</small>"
+    end
   end
 
   # GET /listings/1
