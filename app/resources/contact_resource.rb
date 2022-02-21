@@ -7,6 +7,9 @@ class ContactResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :items,
+             resource: ListingResource
+
   # Indirect associations
 
 end
