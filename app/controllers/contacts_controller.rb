@@ -8,6 +8,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1
   def show
+    @listing = Listing.new
   end
 
   # GET /contacts/new

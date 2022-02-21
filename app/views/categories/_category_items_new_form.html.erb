@@ -1,0 +1,71 @@
+<!-- Form listing start -->
+<%= form_with(model: @listing, local: true) do |f| %>
+<!-- Form listing end -->
+
+  <!-- Label and input for price start -->
+  <div class="form-group">
+    <%= f.label :price %>
+
+    <!-- Input for price start -->
+    <%= f.text_field :price, class: "form-control" %>
+    <!-- Input for price end -->
+  </div>
+  <!-- Label and input for price end -->
+
+  <!-- Label and input for category_id start -->
+  <!-- Input for category_id start -->
+  <%= f.hidden_field :category_id, value: @category.id %>
+  <!-- Input for category_id end -->
+  <!-- Label and input for category_id end -->
+
+  <!-- Label and input for image start -->
+  <div class="form-group">
+    <%= f.label :image %>
+
+    <!-- Input for image start -->
+    <%= f.text_field :image, class: "form-control" %>
+    <!-- Input for image end -->
+  </div>
+  <!-- Label and input for image end -->
+
+  <!-- Label and input for location start -->
+  <div class="form-group">
+    <%= f.label :location %>
+
+    <!-- Input for location start -->
+    <%= f.text_field :location, class: "form-control" %>
+    <!-- Input for location end -->
+  </div>
+  <!-- Label and input for location end -->
+
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.text_area :description, rows: "3", class: "form-control" %>
+    <!-- Input for description end -->
+  </div>
+  <!-- Label and input for description end -->
+
+  <!-- Label and input for contact_id start -->
+  <div class="form-group">
+    <%= f.label :contact_id %>
+
+    <!-- Input for contact_id start -->
+    <%= f.text_field :contact_id, class: "form-control" %>
+    <!-- Input for contact_id end -->
+  </div>
+  <!-- Label and input for contact_id end -->
+
+  <!-- Label and input for item_id start -->
+  <div class="form-group">
+    <%= f.label :item_id %>
+
+    <!-- Input for item_id start -->
+    <%= f.text_field :item_id, class: "form-control" %>
+    <!-- Input for item_id end -->
+  </div>
+  <!-- Label and input for item_id end -->
+
+  <%= f.submit "Create listing", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
