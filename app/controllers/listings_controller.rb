@@ -1,7 +1,6 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: %i[show edit update destroy]
 
-  # GET /listings
   def index
     @q = Listing.ransack(params[:q])
     @listings = @q.result(distinct: true).includes(:contact,
@@ -9,22 +8,17 @@ class ListingsController < ApplicationController
     @location_hash = Gmaps4rails.build_markers(@listings.where.not(location_latitude: nil)) do |listing, marker|
       marker.lat listing.location_latitude
       marker.lng listing.location_longitude
-      marker.infowindow "<h5><a href='/listings/#{listing.id}'>#{listing.price}</a></h5><small>#{listing.location_formatted_address}</small>"
     end
   end
 
-  # GET /listings/1
   def show; end
 
-  # GET /listings/new
   def new
     @listing = Listing.new
   end
 
-  # GET /listings/1/edit
   def edit; end
 
-  # POST /listings
   def create
     @listing = Listing.new(listing_params)
 
@@ -40,7 +34,6 @@ class ListingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /listings/1
   def update
     if @listing.update(listing_params)
       redirect_to @listing, notice: "Listing was successfully updated."
@@ -49,7 +42,6 @@ class ListingsController < ApplicationController
     end
   end
 
-  # DELETE /listings/1
   def destroy
     @listing.destroy
     message = "Listing was successfully deleted."
@@ -62,12 +54,10 @@ class ListingsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_listing
     @listing = Listing.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def listing_params
     params.require(:listing).permit(:price, :category_id, :image, :location,
                                     :description, :contact_id, :item_id)
