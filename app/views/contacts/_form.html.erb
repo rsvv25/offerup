@@ -1,0 +1,57 @@
+<% was_validated = contact.errors.any? %>
+
+<%= form_with(model: contact, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for bought_id start -->
+  <div class="form-group">
+    <% bought_class = "form-control" %>
+    <% bought_was_invalid = contact.errors.include?(:bought) %>
+
+    <% if was_validated %>
+      <% if bought_was_invalid %>
+        <% bought_class << " is-invalid" %>
+      <% else %>
+        <% bought_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :bought_id %>
+    <!-- Input for bought_id start -->
+    <%= f.number_field :bought_id, class: bought_class, placeholder: "Enter bought" %>
+    <!-- Input for bought_id end -->
+    <% if bought_was_invalid %>
+      <% contact.errors.full_messages_for(:bought).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for bought_id end -->
+  <!-- Label and input for selling_id start -->
+  <div class="form-group">
+    <% selling_class = "form-control" %>
+    <% selling_was_invalid = contact.errors.include?(:selling) %>
+
+    <% if was_validated %>
+      <% if selling_was_invalid %>
+        <% selling_class << " is-invalid" %>
+      <% else %>
+        <% selling_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :selling_id %>
+    <!-- Input for selling_id start -->
+    <%= f.number_field :selling_id, class: selling_class, placeholder: "Enter selling" %>
+    <!-- Input for selling_id end -->
+    <% if selling_was_invalid %>
+      <% contact.errors.full_messages_for(:selling).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for selling_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
