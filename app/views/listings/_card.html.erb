@@ -6,53 +6,39 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Price</dt>
-      <!-- Display price start -->
       <dd><%= listing.price %></dd>
-      <!-- Display price end -->
 
       <dt>Category</dt>
-      <!-- Display category_id start -->
       <dd>
         <% if @listing.category.present? %>
           <%= link_to listing.category, listing.category %>
         <% end %>
       </dd>
-      <!-- Display category_id end -->
 
       <dt>Image</dt>
-      <!-- Display image start -->
       <dd>
         <%= cl_image_tag @listing.image, class: "img-fluid" %>
       </dd>
-      <!-- Display image end -->
 
       <dt>Location</dt>
-      <!-- Display location start -->
       <dd>
         <div>
           <%= render partial: "listings/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display location end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= listing.description %></dd>
-      <!-- Display description end -->
 
       <dt>Contact</dt>
-      <!-- Display contact_id start -->
       <dd>
         <% if @listing.contact.present? %>
           <%= link_to listing.contact, listing.contact %>
         <% end %>
       </dd>
-      <!-- Display contact_id end -->
 
       <dt>Item</dt>
-      <!-- Display item_id start -->
       <dd><%= listing.item_id %></dd>
-      <!-- Display item_id end -->
 
     </dl>
 
@@ -61,21 +47,17 @@
         <%= link_to_show_or_back listing, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link listing start -->
       <div class="col">
         <%= link_to edit_listing_url(listing), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link listing end -->
 
-      <!-- Delete link listing start -->
       <div class="col">
         <%= link_to listing, method: :delete, data: { confirm: "Do you really want to delete this listing?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link listing end -->
     </div>
   </div>
 
