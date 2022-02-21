@@ -12,7 +12,11 @@
 
       <dt>Category</dt>
       <!-- Display category_id start -->
-      <dd><%= listing.category_id %></dd>
+      <dd>
+        <% if @listing.category.present? %>
+          <%= link_to listing.category, listing.category %>
+        <% end %>
+      </dd>
       <!-- Display category_id end -->
 
       <dt>Image</dt>
@@ -38,7 +42,11 @@
 
       <dt>Contact</dt>
       <!-- Display contact_id start -->
-      <dd><%= listing.contact_id %></dd>
+      <dd>
+        <% if @listing.contact.present? %>
+          <%= link_to listing.contact, listing.contact %>
+        <% end %>
+      </dd>
       <!-- Display contact_id end -->
 
       <dt>Item</dt>
