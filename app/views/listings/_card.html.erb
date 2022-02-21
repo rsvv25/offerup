@@ -1,0 +1,71 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Listing #<%= listing.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Price</dt>
+      <!-- Display price start -->
+      <dd><%= listing.price %></dd>
+      <!-- Display price end -->
+
+      <dt>Category</dt>
+      <!-- Display category_id start -->
+      <dd><%= listing.category_id %></dd>
+      <!-- Display category_id end -->
+
+      <dt>Image</dt>
+      <!-- Display image start -->
+      <dd><%= listing.image %></dd>
+      <!-- Display image end -->
+
+      <dt>Location</dt>
+      <!-- Display location start -->
+      <dd><%= listing.location %></dd>
+      <!-- Display location end -->
+
+      <dt>Description</dt>
+      <!-- Display description start -->
+      <dd><%= listing.description %></dd>
+      <!-- Display description end -->
+
+      <dt>Contact</dt>
+      <!-- Display contact_id start -->
+      <dd><%= listing.contact_id %></dd>
+      <!-- Display contact_id end -->
+
+      <dt>Item</dt>
+      <!-- Display item_id start -->
+      <dd><%= listing.item_id %></dd>
+      <!-- Display item_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back listing, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link listing start -->
+      <div class="col">
+        <%= link_to edit_listing_url(listing), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link listing end -->
+
+      <!-- Delete link listing start -->
+      <div class="col">
+        <%= link_to listing, method: :delete, data: { confirm: "Do you really want to delete this listing?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link listing end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(listing.updated_at) %> ago
+  </div>
+</div>
