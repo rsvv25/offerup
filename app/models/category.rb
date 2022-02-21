@@ -2,8 +2,8 @@ class Category < ApplicationRecord
   # Direct associations
 
   has_many   :items,
-             :class_name => "Listing",
-             :dependent => :destroy
+             class_name: "Listing",
+             dependent: :destroy
 
   # Indirect associations
 
@@ -14,5 +14,4 @@ class Category < ApplicationRecord
   def to_s
     item_id
   end
-
 end

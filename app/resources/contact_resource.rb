@@ -11,5 +11,4 @@ class ContactResource < ApplicationResource
              resource: ListingResource
 
   # Indirect associations
-
 end

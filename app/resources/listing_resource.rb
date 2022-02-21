@@ -17,5 +17,4 @@ class ListingResource < ApplicationResource
   belongs_to :contact
 
   # Indirect associations
-
 end

@@ -2,8 +2,8 @@ class Contact < ApplicationRecord
   # Direct associations
 
   has_many   :items,
-             :class_name => "Listing",
-             :dependent => :destroy
+             class_name: "Listing",
+             dependent: :destroy
 
   # Indirect associations
 
@@ -14,5 +14,4 @@ class Contact < ApplicationRecord
   def to_s
     bought_id
   end
-
 end

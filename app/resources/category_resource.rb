@@ -10,5 +10,4 @@ class CategoryResource < ApplicationResource
              resource: ListingResource
 
   # Indirect associations
-
 end
