@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  ActiveAdmin.routes(self)
   root :to => "listings#index"
   resources :categories
   resources :contacts
